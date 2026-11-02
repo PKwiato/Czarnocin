@@ -28,7 +28,7 @@
       <hr class="start-divider" />
 
       <button type="button" class="start-item" @click="openNotepad">
-        <img src="/assets/icons/notepad_16.png" alt="Notatki" class="start-item-icon" />
+        <img :src="`${BASE_URL}assets/icons/notepad_16.png`" alt="Notatki" class="start-item-icon" />
         <span class="start-item-title">C:\TEMP\NOTATKI</span>
       </button>
 
@@ -58,15 +58,16 @@ const emit = defineEmits<{
 const authStore = useAuthStore();
 const windowManager = useWindowManagerStore();
 const { playSound } = useSoundEffects();
+const BASE_URL = import.meta.env.BASE_URL;
 
 const menuItems: Array<{ id: WindowAppId; name: string; icon: string }> = [
-  { id: 'case-viewer', name: 'Akta Sprawy (Ds. 112/02)', icon: '/assets/icons/case_folder_16.png' },
-  { id: 'ksip', name: 'Baza KSIP — Wyszukiwarka', icon: '/assets/icons/ksip_terminal_16.png' },
-  { id: 'timeline', name: 'Generator Osi Czasu', icon: '/assets/icons/timeline_16.png' },
-  { id: 'warrant', name: 'Wniosek o Tymczasowy Areszt', icon: '/assets/icons/warrant_16.png' },
-  { id: 'field-dispatcher', name: 'Zlecenia w Terenie', icon: '/assets/icons/dispatcher_16.png' },
-  { id: 'photo-viewer', name: 'Zdjęcia Oględzin (IMG)', icon: '/assets/icons/photos_16.png' },
-  { id: 'mail', name: 'Poczta Służbowa', icon: '/assets/icons/mail_16.png' },
+  { id: 'case-viewer', name: 'Akta Sprawy (Ds. 112/02)', icon: './assets/icons/case_folder_16.png' },
+  { id: 'ksip', name: 'Baza KSIP — Wyszukiwarka', icon: './assets/icons/ksip_terminal_16.png' },
+  { id: 'timeline', name: 'Generator Osi Czasu', icon: './assets/icons/timeline_16.png' },
+  { id: 'warrant', name: 'Wniosek o Tymczasowy Areszt', icon: './assets/icons/warrant_16.png' },
+  { id: 'field-dispatcher', name: 'Zlecenia w Terenie', icon: './assets/icons/dispatcher_16.png' },
+  { id: 'photo-viewer', name: 'Zdjęcia Oględzin (IMG)', icon: './assets/icons/photos_16.png' },
+  { id: 'mail', name: 'Poczta Służbowa', icon: './assets/icons/mail_16.png' },
 ];
 
 const openApp = (id: WindowAppId) => {

@@ -10,13 +10,13 @@ export type SoundEffectType =
   | 'stamp';
 
 const soundFiles: Record<SoundEffectType, string> = {
-  click: '/assets/audio/mouse_click.wav',
-  floppy_seek: '/assets/audio/floppy_seek.wav',
-  floppy_read: '/assets/audio/floppy_read.wav',
-  printer: '/assets/audio/dot_matrix_printer.wav',
-  mail: '/assets/audio/mail_alert.wav',
-  fax: '/assets/audio/fax_handshake.wav',
-  stamp: '/assets/audio/court_stamp.wav',
+  click: './assets/audio/mouse_click.wav',
+  floppy_seek: './assets/audio/floppy_seek.wav',
+  floppy_read: './assets/audio/floppy_read.wav',
+  printer: './assets/audio/dot_matrix_printer.wav',
+  mail: './assets/audio/mail_alert.wav',
+  fax: './assets/audio/fax_handshake.wav',
+  stamp: './assets/audio/court_stamp.wav',
 };
 
 const isMuted = ref(false);

@@ -64,7 +64,7 @@
         <div v-if="currentPhoto" class="photo-display-container">
           <div class="photo-wrapper" :style="{ transform: `scale(${zoom / 100})` }">
             <img
-              :src="`/assets/cases/case-01/photos/${currentPhoto.fileName}`"
+              :src="`./assets/cases/case-01/photos/${currentPhoto.fileName}`"
               :alt="currentPhoto.title"
               class="crime-scene-photo"
               draggable="false"

@@ -17,7 +17,7 @@ const defaultWindows: Record<WindowAppId, WindowState> = {
     zIndex: 10,
     position: { x: 116, y: 16 },
     size: { width: 530, height: 478 },
-    icon: '/assets/icons/case_folder_16.png',
+    icon: './assets/icons/case_folder_16.png',
   },
   'timeline': {
     id: 'timeline',
@@ -28,7 +28,7 @@ const defaultWindows: Record<WindowAppId, WindowState> = {
     zIndex: 11,
     position: { x: 664, y: 16 },
     size: { width: 500, height: 262 },
-    icon: '/assets/icons/timeline_16.png',
+    icon: './assets/icons/timeline_16.png',
   },
   'ksip': {
     id: 'ksip',
@@ -39,7 +39,7 @@ const defaultWindows: Record<WindowAppId, WindowState> = {
     zIndex: 12,
     position: { x: 664, y: 292 },
     size: { width: 500, height: 202 },
-    icon: '/assets/icons/ksip_terminal_16.png',
+    icon: './assets/icons/ksip_terminal_16.png',
   },
   'warrant': {
     id: 'warrant',
@@ -50,7 +50,7 @@ const defaultWindows: Record<WindowAppId, WindowState> = {
     zIndex: 13,
     position: { x: 116, y: 508 },
     size: { width: 640, height: 244 },
-    icon: '/assets/icons/warrant_16.png',
+    icon: './assets/icons/warrant_16.png',
   },
   'field-dispatcher': {
     id: 'field-dispatcher',
@@ -61,7 +61,7 @@ const defaultWindows: Record<WindowAppId, WindowState> = {
     zIndex: 14,
     position: { x: 774, y: 508 },
     size: { width: 390, height: 244 },
-    icon: '/assets/icons/dispatcher_16.png',
+    icon: './assets/icons/dispatcher_16.png',
   },
   'photo-viewer': {
     id: 'photo-viewer',
@@ -72,7 +72,7 @@ const defaultWindows: Record<WindowAppId, WindowState> = {
     zIndex: 9,
     position: { x: 200, y: 80 },
     size: { width: 640, height: 480 },
-    icon: '/assets/icons/photos_16.png',
+    icon: './assets/icons/photos_16.png',
   },
   'mail': {
     id: 'mail',
@@ -83,7 +83,7 @@ const defaultWindows: Record<WindowAppId, WindowState> = {
     zIndex: 8,
     position: { x: 240, y: 100 },
     size: { width: 600, height: 420 },
-    icon: '/assets/icons/mail_16.png',
+    icon: './assets/icons/mail_16.png',
   },
   'notepad': {
     id: 'notepad',
@@ -94,7 +94,7 @@ const defaultWindows: Record<WindowAppId, WindowState> = {
     zIndex: 7,
     position: { x: 280, y: 120 },
     size: { width: 480, height: 360 },
-    icon: '/assets/icons/notepad_16.png',
+    icon: './assets/icons/notepad_16.png',
   },
 };
 
