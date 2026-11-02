@@ -25,17 +25,16 @@
 
       <div class="dialog-body">
         <p class="dialog-desc">
-          Wpisz adres e-mail i hasło. Pozostałe dane uzupełniono automatycznie dla tego stanowiska (szare pola).
+          Wpisz adres e-mail i hasło konta policyjnego w chmurze lub skorzystaj z logowania lokalnego na stanowisku dyżurnym KC-07.
         </p>
 
-        <div class="form-row">
-          <label>Numer służbowy:</label>
-          <div class="input-retro readonly-field">{{ authStore.badgeNumber }}</div>
-        </div>
-
-        <div class="form-row">
-          <label>Jednostka:</label>
-          <div class="input-retro readonly-field">KMP Czarnocin, Wydz. Kryminalny</div>
+        <!-- Komunikat błędu / ostrzeżenia -->
+        <div v-if="errorMessage" class="error-banner border-inset">
+          <span class="error-icon">⚠️</span>
+          <div class="error-text">
+            <strong>Błąd autoryzacji KSIP:</strong>
+            <div>{{ errorMessage }}</div>
+          </div>
         </div>
 
         <div class="form-row">
@@ -44,58 +43,83 @@
             v-model="email"
             type="email"
             class="input-retro"
-            placeholder="np. adamski@policja.gov.pl"
-            @keydown.enter="handleLogin"
+            placeholder="np. funkcjonariusz@policja.pl"
+            :disabled="authStore.isLoading"
+            @keydown.enter="handleCloudLogin"
           />
         </div>
 
         <div class="form-row">
-          <label>Hasło:</label>
+          <label>Hasło dostępowe:</label>
           <input
             v-model="password"
             type="password"
             class="input-retro"
             placeholder="wpisz hasło"
-            @keydown.enter="handleLogin"
+            :disabled="authStore.isLoading"
+            @keydown.enter="handleCloudLogin"
           />
         </div>
 
+        <div class="form-row">
+          <label>Numer służbowy:</label>
+          <div class="input-retro readonly-field">{{ authStore.badgeNumber }}</div>
+        </div>
+
+        <div class="form-row">
+          <label>Jednostka:</label>
+          <div class="input-retro readonly-field">KMP Czarnocin, Wydz. Dochodzeniowo-Śledczy</div>
+        </div>
+
         <div class="last-login-info">
-          Ostatnie udane logowanie: czwartek 07:45, stanowisko KC-07
+          Stanowisko: KC-07 (offline/online) · Terminal stacji roboczej
         </div>
       </div>
 
       <div class="dialog-actions">
         <button
           type="button"
-          class="btn-retro action-btn btn-primary"
-          @click="handleLogin"
+          class="btn-retro action-btn btn-secondary"
+          :disabled="authStore.isLoading"
+          title="Wejdź do śledztwa bez logowania do bazy chmurowej"
+          @click="handleLocalLogin"
         >
-          Zaloguj
+          Stanowisko KC-07 (Lokalnie)
         </button>
+
         <button
           type="button"
           class="btn-retro action-btn"
+          :disabled="authStore.isLoading"
           @click="$emit('switch-screen', 'register')"
         >
           Nowe konto...
+        </button>
+
+        <button
+          type="button"
+          class="btn-retro action-btn btn-primary"
+          :disabled="authStore.isLoading"
+          @click="handleCloudLogin"
+        >
+          {{ authStore.isLoading ? 'Logowanie...' : 'Zaloguj' }}
         </button>
       </div>
     </div>
 
     <!-- Ostrzeżenie urzędowe -->
     <div class="system-warning warning-box">
-      <strong>UWAGA!</strong> System zawiera dane objęte tajemnicą służbową. Nieuprawniony dostęp lub przeglądanie danych osób niezwiązanych ze sprawą jest rejestrowane i podlega kontroli BSW oraz odpowiedzialności karnej.
+      <strong>UWAGA!</strong> System zawiera dane objęte tajemnicą państwową i służbową. Nieuprawniony dostęp lub przeglądanie danych osób niezwiązanych ze sprawą jest rejestrowane w logach audytowych i podlega kontroli BSW oraz odpowiedzialności karnej na mocy art. 266 § 1 k.k.
     </div>
 
     <div class="copyright-info">
-      © 1998–2002 Biuro Informatyki KGP
+      © 1998–2002 Biuro Łączności i Informatyki KGP · KMP Czarnocin
     </div>
 
     <!-- Dolna belka systemowa -->
     <footer class="login-footer border-outset">
       <span>KMP Czarnocin · Wydział Łączności i Informatyki · stanowisko KC-07</span>
-      <span style="margin-left: auto">Czwartek 08:00</span>
+      <span style="margin-left: auto">Czwartek 08:00 · Połączenie: {{ authStore.authMode === 'supabase' ? 'CHMURA' : 'LOKALNE' }}</span>
     </footer>
   </div>
 </template>
@@ -113,12 +137,37 @@ const emit = defineEmits<{
 const authStore = useAuthStore();
 const { playSound } = useSoundEffects();
 
-const email = ref('adamski@policja.gov.pl');
-const password = ref('********');
+const email = ref('');
+const password = ref('');
+const errorMessage = ref<string | null>(null);
 
-const handleLogin = () => {
+const handleCloudLogin = async () => {
   playSound('click');
-  authStore.login();
+  errorMessage.value = null;
+
+  if (!email.value || !password.value) {
+    errorMessage.value = 'Wpisz adres e-mail oraz hasło służbowe.';
+    return;
+  }
+
+  const result = await authStore.loginWithSupabase(email.value, password.value);
+  if (result.success) {
+    emit('login-success');
+  } else {
+    playSound('floppy_seek');
+    if (result.code === 'email_not_confirmed') {
+      errorMessage.value = 'Konto nie zostało jeszcze aktywowane linkiem e-mail. Sprawdź skrzynkę lub skorzystaj z przycisku „Stanowisko KC-07 (Lokalnie)”.';
+    } else if (result.code === 'invalid_credentials') {
+      errorMessage.value = 'Niepoprawny e-mail lub hasło.';
+    } else {
+      errorMessage.value = result.error || 'Nie udało się połączyć z serwerem KSIP.';
+    }
+  }
+};
+
+const handleLocalLogin = () => {
+  playSound('click');
+  authStore.loginLocal();
   emit('login-success');
 };
 </script>
@@ -170,22 +219,46 @@ const handleLogin = () => {
 }
 
 .login-dialog {
-  left: 420px;
-  top: 170px;
-  width: 440px;
-  height: 380px;
+  position: absolute;
+  left: 50%;
+  top: 140px;
+  transform: translateX(-50%);
+  width: 480px;
+  min-height: 400px;
 }
 
 .dialog-body {
-  padding: 16px 22px;
+  padding: 14px 20px;
   flex: 1;
 }
 
 .dialog-desc {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   font-size: 11px;
-  line-height: 1.5;
-  color: #333333;
+  line-height: 1.4;
+  color: #222222;
+}
+
+.error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background-color: #fff4d1;
+  border: 1px solid #d4a017;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  font-size: 11px;
+  color: #663300;
+  line-height: 1.35;
+}
+
+.error-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.error-text {
+  flex: 1;
 }
 
 .readonly-field {
@@ -194,15 +267,17 @@ const handleLogin = () => {
 }
 
 .last-login-info {
-  font-size: 11px;
+  font-size: 10px;
   color: #555555;
-  margin-top: 12px;
+  margin-top: 10px;
+  border-top: 1px dashed #aaaaaa;
+  padding-top: 6px;
 }
 
 .dialog-actions {
   display: flex;
   gap: 8px;
-  padding: 10px 22px;
+  padding: 10px 18px;
   justify-content: flex-end;
   border-top: 1px solid #808080;
   background-color: var(--win-gray);
@@ -210,6 +285,11 @@ const handleLogin = () => {
 
 .action-btn {
   min-width: 90px;
+  font-size: 11px;
+}
+
+.btn-secondary {
+  color: #003366;
 }
 
 .btn-primary {
@@ -218,16 +298,17 @@ const handleLogin = () => {
 
 .system-warning {
   position: absolute;
-  left: 420px;
+  left: 50%;
   top: 575px;
-  width: 440px;
+  transform: translateX(-50%);
+  width: 480px;
 }
 
 .copyright-info {
   position: absolute;
   left: 40px;
-  top: 690px;
-  font-size: 12px;
+  top: 720px;
+  font-size: 11px;
   color: #9fb3b8;
 }
 
@@ -236,7 +317,7 @@ const handleLogin = () => {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 34px;
+  height: 30px;
   background-color: var(--win-gray);
   display: flex;
   align-items: center;

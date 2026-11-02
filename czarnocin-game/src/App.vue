@@ -4,17 +4,27 @@
       <!-- Warstwa efektu kineskopu CRT 60Hz -->
       <CrtOverlay :enabled="crtEnabled" />
 
+      <!-- Ekran wstępnego ładowania sesji KSIP -->
+      <template v-if="isLoadingSession">
+        <div class="boot-screen">
+          <div class="boot-box">
+            <div class="boot-title">KRAJOWY SYSTEM INFORMACJI POLICJI</div>
+            <div class="boot-sub">Inicjalizacja terminala KC-07...</div>
+          </div>
+        </div>
+      </template>
+
       <!-- Warunkowy widok ekranu (Flow) -->
-      <template v-if="currentScreen === 'login'">
+      <template v-else-if="currentScreen === 'login'">
         <LoginScreen
-          @login-success="currentScreen = 'assignment'"
+          @login-success="handleLoginSuccess"
           @switch-screen="(s) => (currentScreen = s)"
         />
       </template>
 
       <template v-else-if="currentScreen === 'register'">
         <RegisterScreen
-          @register-success="currentScreen = 'assignment'"
+          @register-success="handleRegisterSuccess"
           @switch-screen="(s) => (currentScreen = s)"
         />
       </template>
@@ -120,8 +130,9 @@ import WarrantResultScreen from './components/screens/WarrantResultScreen.vue';
 
 type AppScreen = 'login' | 'register' | 'assignment' | 'desktop' | 'warrant-result';
 
-const currentScreen = ref<AppScreen>('desktop'); // Domyślnie na pulpicie dla wygody rozgrywki
-const crtEnabled = ref(true);
+const isLoadingSession = ref(true);
+const currentScreen = ref<AppScreen>('login'); // Początkowo 'login', weryfikowane przez initAuth
+const crtEnabled = ref(false); // Domyślnie wyłączona emulacja CRT
 const warrantResult = ref<WarrantEvaluationResult | null>(null);
 
 const authStore = useAuthStore();
@@ -148,6 +159,14 @@ const screenScaleStyle = computed(() => {
   };
 });
 
+const handleLoginSuccess = () => {
+  currentScreen.value = 'assignment';
+};
+
+const handleRegisterSuccess = () => {
+  currentScreen.value = 'assignment';
+};
+
 const handleWarrantEvaluated = (result: WarrantEvaluationResult) => {
   warrantResult.value = result;
   if (!result.isApproved) {
@@ -164,8 +183,8 @@ const handleAcceptPromotion = () => {
   currentScreen.value = 'desktop';
 };
 
-const handleLogout = () => {
-  authStore.logout();
+const handleLogout = async () => {
+  await authStore.logout();
   currentScreen.value = 'login';
 };
 
@@ -173,6 +192,20 @@ onMounted(async () => {
   updateScale();
   window.addEventListener('resize', updateScale);
   await caseStore.loadCase('case-01');
+
+  try {
+    const hasSession = await authStore.initAuth();
+    if (hasSession) {
+      currentScreen.value = 'desktop';
+    } else {
+      currentScreen.value = 'login';
+    }
+  } catch (err) {
+    console.warn('Błąd weryfikacji sesji KSIP:', err);
+    currentScreen.value = 'login';
+  } finally {
+    isLoadingSession.value = false;
+  }
 });
 
 onUnmounted(() => {
@@ -189,5 +222,37 @@ onUnmounted(() => {
   justify-content: center;
   overflow: hidden;
   background-color: #0b171a;
+}
+
+.boot-screen {
+  width: 100%;
+  height: 100%;
+  background-color: #0c181b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-os);
+  color: #c8b560;
+}
+
+.boot-box {
+  text-align: center;
+  padding: 30px;
+  border: 2px solid #0a246a;
+  background-color: #071518;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.boot-title {
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.boot-sub {
+  font-size: 12px;
+  color: #9fb3b8;
 }
 </style>

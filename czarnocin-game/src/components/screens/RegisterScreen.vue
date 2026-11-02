@@ -24,22 +24,60 @@
 
       <div class="dialog-body">
         <p class="dialog-desc">
-          Szare pola uzupełniono automatycznie z akt kadrowych KMP Czarnocin. Wpisz tylko adres e-mail i hasło dostępowe.
+          Wypełnij dane funkcjonariusza, aby zarejestrować nowe konto w policyjnym rejestrze KSIP i utworzyć indywidualną teczkę śledczą.
         </p>
+
+        <!-- Baner błędu -->
+        <div v-if="errorMessage" class="notice-banner error-banner border-inset">
+          <span class="banner-icon">⚠️</span>
+          <div class="banner-text">
+            <strong>Błąd rejestracji:</strong>
+            <div>{{ errorMessage }}</div>
+          </div>
+        </div>
+
+        <!-- Baner sukcesu z wymaganym potwierdzeniem -->
+        <div v-if="confirmationRequired" class="notice-banner success-banner border-inset">
+          <span class="banner-icon">ℹ️</span>
+          <div class="banner-text">
+            <strong>Wniosek został przyjęty przez centralę KGP!</strong>
+            <div>Link aktywacyjny przesłano na podany adres e-mail.</div>
+            <div style="margin-top: 6px;">
+              Możesz kliknąć link w poczcie lub natychmiast rozpocząć czynności śledcze w trybie stanowiska lokalnego KC-07:
+            </div>
+            <div style="margin-top: 8px;">
+              <button type="button" class="btn-retro btn-primary" @click="handleContinueLocally">
+                Rozpocznij służbę na stanowisku KC-07
+              </button>
+            </div>
+          </div>
+        </div>
 
         <div class="form-row">
           <label>Imię i nazwisko:</label>
-          <div class="input-retro readonly-field">St. post. Marek Adamski</div>
+          <input
+            v-model="fullName"
+            type="text"
+            class="input-retro"
+            placeholder="np. St. post. Marek Adamski"
+            :disabled="authStore.isLoading || confirmationRequired"
+          />
         </div>
 
         <div class="form-row">
           <label>Numer legitymacji:</label>
-          <div class="input-retro readonly-field">CZ 20412/02</div>
+          <input
+            v-model="badgeNumber"
+            type="text"
+            class="input-retro"
+            placeholder="np. CZ 20412/02"
+            :disabled="authStore.isLoading || confirmationRequired"
+          />
         </div>
 
         <div class="form-row">
           <label>Stopień służbowy:</label>
-          <div class="input-retro readonly-field">Młodszy Aspirant (nadany z urzędu)</div>
+          <div class="input-retro readonly-field">Młodszy Aspirant (przydział początkowy)</div>
         </div>
 
         <div class="form-row">
@@ -58,17 +96,19 @@
             v-model="email"
             type="email"
             class="input-retro"
-            placeholder="adamski@kmp.czarnocin.policja.gov.pl"
+            placeholder="np. adamski@policja.pl"
+            :disabled="authStore.isLoading || confirmationRequired"
           />
         </div>
 
         <div class="form-row">
-          <label>Hasło:</label>
+          <label>Hasło (min. 6 znaków):</label>
           <input
             v-model="password"
             type="password"
             class="input-retro"
             placeholder="wpisz hasło"
+            :disabled="authStore.isLoading || confirmationRequired"
           />
         </div>
 
@@ -79,14 +119,15 @@
             type="password"
             class="input-retro"
             placeholder="powtórz hasło"
+            :disabled="authStore.isLoading || confirmationRequired"
           />
         </div>
 
         <div class="declaration-box border-groove">
           <label class="declaration-label">
-            <input type="checkbox" v-model="declarationAccepted" />
+            <input type="checkbox" v-model="declarationAccepted" :disabled="confirmationRequired" />
             <span>
-              Oświadczam, że znam przepisy o ochronie informacji niejawnych i zobowiązuję się do zachowania tajemnicy służbowej. Przyjmuję do wiadomości, że korzystanie z bazy KSIP jest rejestrowane i kontrolowane przez BSW.
+              Oświadczam, że znam przepisy o ochronie informacji niejawnych i zobowiązuję się do zachowania tajemnicy służbowej. Przyjmuję do wiadomości, że korzystanie z bazy KSIP jest rejestrowane i kontrolowane przez Biuro Spraw Wewnętrznych KGP.
             </span>
           </label>
         </div>
@@ -95,18 +136,21 @@
       <div class="dialog-actions">
         <button
           type="button"
-          class="btn-retro btn-primary"
-          :disabled="!declarationAccepted"
-          @click="handleRegister"
-        >
-          Utwórz konto i rozpocznij służbę
-        </button>
-        <button
-          type="button"
           class="btn-retro"
+          :disabled="authStore.isLoading"
           @click="$emit('switch-screen', 'login')"
         >
-          Anuluj
+          {{ confirmationRequired ? 'Przejdź do logowania' : 'Anuluj' }}
+        </button>
+
+        <button
+          v-if="!confirmationRequired"
+          type="button"
+          class="btn-retro btn-primary"
+          :disabled="!declarationAccepted || authStore.isLoading"
+          @click="handleRegister"
+        >
+          {{ authStore.isLoading ? 'Rejestrowanie wniosku...' : 'Utwórz konto i rozpocznij służbę' }}
         </button>
       </div>
     </div>
@@ -122,10 +166,10 @@
           zdjęcie<br />3,5 × 4,5 cm
         </div>
         <div class="badge-details">
-          <strong>Adamski Marek</strong><br />
+          <strong>{{ fullName.trim() || 'St. post. Marek Adamski' }}</strong><br />
           Młodszy Aspirant<br />
           KMP Czarnocin<br />
-          Nr CZ 20412/02<br />
+          Nr {{ badgeNumber.trim() || 'CZ 20412/02' }}<br />
           Ważna do: 31.12.2004
         </div>
       </div>
@@ -152,14 +196,68 @@ const emit = defineEmits<{
 const authStore = useAuthStore();
 const { playSound } = useSoundEffects();
 
-const email = ref('adamski@kmp.czarnocin.policja.gov.pl');
-const password = ref('tajne2002');
-const confirmPassword = ref('tajne2002');
+const fullName = ref('St. post. Marek Adamski');
+const badgeNumber = ref('CZ 20412/02');
+const email = ref('');
+const password = ref('');
+const confirmPassword = ref('');
 const declarationAccepted = ref(true);
 
-const handleRegister = () => {
-  playSound('printer');
-  authStore.login('CZ 20412/02', 'St. post. Marek Adamski');
+const errorMessage = ref<string | null>(null);
+const confirmationRequired = ref(false);
+
+const handleRegister = async () => {
+  playSound('click');
+  errorMessage.value = null;
+
+  if (!email.value.trim() || !password.value) {
+    errorMessage.value = 'Wypełnij adres e-mail i hasło dostępowe.';
+    return;
+  }
+
+  if (password.value.length < 6) {
+    errorMessage.value = 'Hasło musi zawierać co najmniej 6 znaków.';
+    return;
+  }
+
+  if (password.value !== confirmPassword.value) {
+    errorMessage.value = 'Podane hasła nie są identyczne.';
+    return;
+  }
+
+  if (!declarationAccepted.value) {
+    errorMessage.value = 'Musisz zatwierdzić oświadczenie o zachowaniu tajemnicy służbowej.';
+    return;
+  }
+
+  const result = await authStore.registerWithSupabase(
+    email.value,
+    password.value,
+    fullName.value.trim() || 'St. post. Marek Adamski',
+    badgeNumber.value.trim() || 'CZ 20412/02'
+  );
+
+  if (result.success) {
+    if (result.needsConfirmation) {
+      playSound('printer');
+      confirmationRequired.value = true;
+    } else {
+      playSound('printer');
+      emit('register-success');
+    }
+  } else {
+    playSound('floppy_seek');
+    if (result.code === 'user_already_exists') {
+      errorMessage.value = 'Funkcjonariusz o tym adresie e-mail jest już zarejestrowany w systemie KSIP.';
+    } else {
+      errorMessage.value = result.error || 'Nie udało się zarejestrować wniosku w bazie.';
+    }
+  }
+};
+
+const handleContinueLocally = () => {
+  playSound('click');
+  authStore.loginLocal(badgeNumber.value.trim() || 'CZ 20412/02', fullName.value.trim() || 'St. post. Marek Adamski');
   emit('register-success');
 };
 </script>
@@ -211,21 +309,56 @@ const handleRegister = () => {
 }
 
 .register-dialog {
-  left: 60px;
-  top: 105px;
+  position: absolute;
+  left: 50px;
+  top: 96px;
   width: 740px;
-  height: 630px;
+  max-height: 660px;
+  display: flex;
+  flex-direction: column;
 }
 
 .dialog-body {
-  padding: 14px 20px;
+  padding: 12px 18px;
+  overflow-y: auto;
   flex: 1;
 }
 
 .dialog-desc {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   font-size: 11px;
-  color: #333333;
+  color: #222222;
+}
+
+.notice-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.error-banner {
+  background-color: #fff4d1;
+  border: 1px solid #d4a017;
+  color: #663300;
+}
+
+.success-banner {
+  background-color: #e6f4ea;
+  border: 1px solid #34a853;
+  color: #0d652d;
+}
+
+.banner-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.banner-text {
+  flex: 1;
 }
 
 .readonly-field {
@@ -235,10 +368,10 @@ const handleRegister = () => {
 
 .declaration-box {
   background-color: #f3f1e8;
-  padding: 10px 12px;
-  margin-top: 10px;
+  padding: 8px 10px;
+  margin-top: 8px;
   font-size: 11px;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .declaration-label {
@@ -251,7 +384,7 @@ const handleRegister = () => {
 .dialog-actions {
   display: flex;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 10px 18px;
   justify-content: flex-end;
   border-top: 1px solid #808080;
   background-color: var(--win-gray);
@@ -259,15 +392,13 @@ const handleRegister = () => {
 
 .btn-primary {
   font-weight: bold;
-  min-width: 220px;
 }
 
 .badge-preview-card {
   position: absolute;
-  left: 830px;
+  left: 810px;
   top: 120px;
-  width: 380px;
-  height: 220px;
+  width: 400px;
   background-color: #f3f1e8;
   padding: 14px 16px;
   box-sizing: border-box;
@@ -311,7 +442,7 @@ const handleRegister = () => {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 34px;
+  height: 30px;
   background-color: var(--win-gray);
   display: flex;
   align-items: center;
