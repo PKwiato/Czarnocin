@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Pulpit śledczego</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+.w{position:absolute;background:#d4d0c8;border:2px outset #fff;box-shadow:3px 3px 0 rgba(0,0,0,.45);display:flex;flex-direction:column;font:12px Tahoma,Verdana,sans-serif;color:#111;box-sizing:border-box}
+.t{background:linear-gradient(90deg,#0a246a,#3a6ea5);color:#fff;font-weight:bold;padding:3px 6px;display:flex;justify-content:space-between;font-size:12px}
+.b{font:12px Tahoma,Verdana,sans-serif;background:#d4d0c8;border:2px outset #fff;padding:3px 9px;color:#111;min-height:24px}
+.ic{position:absolute;left:14px;width:84px;text-align:center;color:#fff;font:12px Tahoma,Verdana,sans-serif;text-shadow:1px 1px 0 #000}
+.ic i{display:block;margin:0 auto 4px;width:34px;height:30px;background:#c8b560;border:2px solid #fff}
+.in{background:#fff;border:2px inset #fff;padding:2px 4px;font:12px 'Courier New',monospace;color:#111}
+.bar{position:absolute;height:22px;font-size:11px;line-height:22px;padding:0 5px;box-sizing:border-box;overflow:hidden;white-space:nowrap}
+td,th{border:1px solid #808080;padding:2px 5px;text-align:left;font-weight:normal;font-size:11px}
+th{background:#bdb9b0;font-weight:bold}
+</style>
+</helmet>
+<div style="position:relative;width:1280px;height:800px;overflow:hidden;background:#12262b;font-family:Tahoma,Verdana,sans-serif">
+
+<div class="ic" style="top:16px"><i></i>Akta sprawy</div>
+<div class="ic" style="top:92px"><i style="background:#9ab"></i>Baza KSIP</div>
+<div class="ic" style="top:168px"><i style="background:#ddd;width:30px;height:34px"></i>Dyskietka (A:)</div>
+<div class="ic" style="top:248px"><i style="background:#8c9"></i>Poczta służbowa</div>
+<div class="ic" style="top:324px"><i style="background:#c8b560;border-style:dashed"></i>C:\TEMP\NOTATKI</div>
+<div class="ic" style="top:404px"><i style="background:#aaa"></i>Kosz</div>
+
+<div class="w" style="left:116px;top:16px;width:530px;height:478px">
+<div class="t"><span>Marker Aktowy – Protokół_przesłuchania_świadka.tif</span><span>_ □ ×</span></div>
+<div style="display:flex;gap:6px;padding:6px;align-items:center;border-bottom:1px solid #808080">
+<button type="button" class="b" style="background:#f2e24a">Żółty: fakty / alibi</button>
+<button type="button" class="b" style="background:#e8707a">Czerwony: sprzeczność</button>
+<button type="button" class="b" style="background:#7fb2f0">Niebieski: powiązania</button>
+<button type="button" class="b" style="margin-left:auto">Wpnij do akt</button>
+</div>
+<div style="margin:8px;flex:1;background:#f3f1e8;border:2px inset #fff;padding:14px 18px;font:13px/1.65 'Courier New',monospace;color:#222;overflow:hidden">
+<div style="text-align:center;font-weight:bold;margin-bottom:8px">PROTOKÓŁ PRZESŁUCHANIA ŚWIADKA<br>Czarnocin, dnia 14.03.2002 r., godz. 09:40</div>
+Świadek zeznał: <span style="background:#f2e24a">tego wieczoru od około 20.30 do 22.30 przebywał w barze „Pod Lipą”</span> wraz z kolegą. Nie opuszczał lokalu.<br>
+Na pytanie o bocznicę odpowiedział: <span style="background:#e8707a">„W ogóle tam nie jeżdżę, nie znam tego miejsca”</span>.<br>
+Dalej oświadczył, że zmarłego znał z widzenia. <span style="background:#7fb2f0">Telefon odebrał od mężczyzny z ochrony, nazwiska nie pamięta.</span><br>
+Faktura przewozowa, okazana świadkowi, nie wzbudziła jego komentarza.<br>
+<span style="color:#666">[ ... skan faksu, strona 1 z 3 ... ]</span>
+</div>
+<div style="padding:3px 8px;border-top:1px solid #808080;font-size:11px">Zaznaczone: 3 fragmenty · Wpięte do akt: 0 · Podgląd 100%</div>
+</div>
+
+<div class="w" style="left:664px;top:16px;width:500px;height:262px">
+<div class="t"><span>Generator Osi Czasu – Sprawa 1</span><span>_ □ ×</span></div>
+<div style="padding:8px 10px;font-size:11px">Przeciągnij zeznania z godzinami na oś.</div>
+<div style="position:relative;margin:0 14px;height:150px;background:#fff;border:2px inset #fff">
+<div style="position:absolute;left:0;top:0;width:100%;height:20px;border-bottom:1px solid #808080;font-size:10px;color:#111"><span style="position:absolute;left:4px">20:00</span><span style="position:absolute;left:114px">21:00</span><span style="position:absolute;left:224px">22:00</span><span style="position:absolute;left:334px">23:00</span><span style="position:absolute;left:430px">24:00</span></div>
+<div style="position:absolute;left:0;top:30px;font-size:10px;padding-left:4px">Alibi</div>
+<div class="bar" style="left:59px;top:44px;width:220px;background:#f2e24a;border:1px solid #8a7d00">Zeznanie: bar „Pod Lipą”</div>
+<div style="position:absolute;left:0;top:74px;font-size:10px;padding-left:4px">Wydruk bilingu</div>
+<div class="bar" style="left:187px;top:88px;width:80px;background:#e8707a;border:1px solid #7a0a14">BTS Huta-Płn.</div>
+<div style="position:absolute;left:187px;top:20px;width:80px;height:126px;border-left:2px dashed #b00020;border-right:2px dashed #b00020"></div>
+</div>
+<div style="margin:6px 14px;padding:4px 8px;background:#fff0b0;border:1px solid #7a0a14;font-weight:bold;color:#7a0a14;font-size:11px">Sprzeczność: 21:41–22:19 podejrzany w dwóch miejscach.</div>
+</div>
+
+<div class="w" style="left:664px;top:292px;width:500px;height:202px">
+<div class="t"><span>Baza KSIP – wyszukiwarka krzyżowa</span><span>_ □ ×</span></div>
+<div style="display:flex;gap:6px;padding:8px;align-items:center">
+<label>Szukaj:</label><span class="in" style="flex:1">TRANS-MET</span><button type="button" class="b">Szukaj</button>
+</div>
+<table style="margin:0 8px;border-collapse:collapse;background:#fff;width:calc(100% - 16px)">
+<tr><th>Typ</th><th>Wynik</th><th>Źródło</th></tr>
+<tr><td>Firma</td><td>TRANS-MET sp. z o.o., NIP 625-xx-xx-xxx</td><td>KRS</td></tr>
+<tr><td>Pojazd</td><td>Ciężarowy, rej. SBI 2218</td><td>Wydz. Komunikacji</td></tr>
+<tr><td>Notatka</td><td>Kontrola drogowa, 1999 r.</td><td>Dzielnicowy</td></tr>
+</table>
+<div style="display:flex;align-items:center;padding:4px 8px;font-size:11px"><span>Zapytania: 3 z 10 (limit Mł. Asp.)</span><button type="button" class="b" style="margin-left:auto;font-size:11px">Wepnij odpis do akt (K-05)</button></div>
+</div>
+
+<div class="w" style="left:116px;top:508px;width:640px;height:244px">
+<div class="t"><span>Wniosek o Aresztowanie – formularz sankcji</span><span>_ □ ×</span></div>
+<table style="margin:8px;border-collapse:collapse;background:#fff;width:calc(100% - 16px)">
+<tr><th style="width:130px">Wymóg</th><th>Podpięte dowody (Multi-Slot)</th><th style="width:85px">Status</th></tr>
+<tr><td>Obalenie alibi</td><td><span style="background:#f2e24a;border:1px solid #808080;padding:1px 4px;margin-right:4px">AKT-006</span><span style="background:#e8707a;border:1px solid #808080;padding:1px 4px">AKT-011</span></td><td style="color:#0a5a1a;font-weight:bold">Uzupełniono</td></tr>
+<tr><td>Obecność na miejscu</td><td><span style="background:#f2e24a;border:1px solid #808080;padding:1px 4px;margin-right:4px">AKT-012</span><span class="in" style="background:#f3f1e8;padding:1px 4px">[ + upuść K-01 ]</span></td><td style="color:#a06000;font-weight:bold">Niepełny (1/2)</td></tr>
+<tr><td>Ślad materialny</td><td class="in" style="background:#f3f1e8">[ przeciągnij ekspertyzę LK (AKT-014) ]</td><td style="color:#7a0a14;font-weight:bold">Brak</td></tr>
+<tr><td>Motyw</td><td class="in" style="background:#f3f1e8">[ przeciągnij zeznanie (AKT-013) + fakturę/biling ]</td><td style="color:#7a0a14;font-weight:bold">Brak</td></tr>
+</table>
+<div style="display:flex;gap:8px;padding:0 8px;align-items:center;font-size:11px"><span>Błąd merytoryczny = odrzucenie wniosku i kara dyscyplinarna.</span><button type="button" class="b" style="margin-left:auto">Złóż do prokuratora</button></div>
+</div>
+
+<div class="w" style="left:774px;top:508px;width:390px;height:244px">
+<div class="t"><span>Zlecenia w terenie</span><span>_ □ ×</span></div>
+<table style="margin:8px;border-collapse:collapse;background:#fff;width:calc(100% - 16px)">
+<tr><th>Czynność</th><th style="width:60px">Koszt</th></tr>
+<tr><td>Ponowne przesłuchanie świadka</td><td>6 godz.</td></tr>
+<tr><td>Wydruk bilingów (wymaga zgody)</td><td>10 godz.</td></tr>
+<tr><td>Ekspertyza noża (laboratorium)</td><td>14 godz.</td></tr>
+</table>
+<div style="padding:0 8px;font-size:11px">Budżet śledztwa: 62 z 80 godz.</div>
+<div style="margin:4px 8px;height:14px;background:#fff;border:2px inset #fff"><div style="width:77%;height:100%;background:#0a246a"></div></div>
+<div style="padding:4px 8px"><button type="button" class="b">Zleć wybrane</button></div>
+</div>
+
+<div style="position:absolute;left:0;bottom:0;width:100%;height:36px;background:#d4d0c8;border-top:2px outset #fff;display:flex;align-items:center;gap:6px;padding:0 6px;box-sizing:border-box;font:12px Tahoma,Verdana,sans-serif;color:#111">
+<button type="button" class="b" style="font-weight:bold">Start</button>
+<button type="button" class="b">Marker Aktowy</button><button type="button" class="b">Zdjęcia (IMG)</button><button type="button" class="b">Oś Czasu</button><button type="button" class="b">KSIP</button><button type="button" class="b">Wniosek</button><button type="button" class="b">Zlecenia</button>
+<div style="margin-left:auto;display:flex;gap:14px;border:2px inset #fff;padding:4px 10px">
+<span>Młodszy Aspirant</span><span>Punkty: 0 / 100</span><span>Czwartek 08:00</span>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

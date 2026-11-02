@@ -1,0 +1,74 @@
+{
+  "caseId": "case-01",
+  "suspectAliases": [
+    "zbigniew m.",
+    "zbigniew m",
+    "m.",
+    "zbigniew"
+  ],
+  "falseSuspectAliases": [
+    "tadeusz w.",
+    "tadeusz w",
+    "w.",
+    "tadeusz"
+  ],
+  "requirements": {
+    "alibi": {
+      "name": "Obalenie alibi",
+      "mandatory": [
+        "AKT-006"
+      ],
+      "counterEvidenceOr": [
+        "AKT-010",
+        "AKT-011"
+      ],
+      "forbidden": [
+        "AKT-015",
+        "AKT-009"
+      ]
+    },
+    "presence": {
+      "name": "Obecność na miejscu",
+      "mandatory": [
+        "AKT-012",
+        "K-01"
+      ],
+      "supporting": [
+        "AKT-011"
+      ],
+      "forbidden": [
+        "IMG-09",
+        "AKT-008"
+      ]
+    },
+    "material_trace": {
+      "name": "Ślad materialny",
+      "mandatory": [
+        "AKT-014"
+      ],
+      "supporting": [
+        "K-02"
+      ],
+      "forbidden": [
+        "IMG-09",
+        "AKT-008"
+      ]
+    },
+    "motive": {
+      "name": "Motyw",
+      "mandatory": [
+        "AKT-013"
+      ],
+      "motiveEvidenceOr": [
+        "AKT-007",
+        "AKT-005"
+      ],
+      "supporting": [
+        "K-08"
+      ],
+      "forbidden": [
+        "AKT-008"
+      ]
+    }
+  }
+}

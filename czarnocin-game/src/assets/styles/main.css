@@ -1,0 +1,126 @@
+/* ==========================================================================
+   PROJEKT CZARNOCIN 2002 — Główny arkusz stylów aplikacji
+   ========================================================================== */
+
+@import './typography.css';
+@import './98.css';
+@import './crt-overlay.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #0b171a;
+  color: #111111;
+  user-select: none;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #0b171a;
+}
+
+/* Wirtualny monitor retro (domyślnie skalowany do 1280x800 z zachowaniem proporcji) */
+.virtual-screen {
+  position: relative;
+  width: 1280px;
+  height: 800px;
+  background-color: #12262b;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.85);
+}
+
+/* Emblemat policji z makiet */
+.police-emblem,
+.em {
+  width: 64px;
+  height: 72px;
+  background: #0a246a;
+  border: 3px solid #c8b560;
+  clip-path: polygon(0 0, 100% 0, 100% 62%, 50% 100%, 0 62%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 14px;
+  box-sizing: border-box;
+  color: #c8b560;
+  font: bold 11px var(--font-os);
+  flex: none;
+}
+
+/* Ostrzeżenie urzędowe (czerwona ramka, maszynopis) */
+.warning-box {
+  background-color: #f3f1e8;
+  border: 2px solid #7a0a14;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: #222222;
+}
+
+/* Formularz w wierszach (label + input) */
+.form-row,
+.f {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.form-row label,
+.f label {
+  width: 150px;
+  flex: none;
+}
+
+.form-row .input-retro,
+.form-row .in,
+.f .in {
+  flex: 1;
+}
+
+/* Scrollbary stylizowane na Windows 2000 */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+  background-color: #dfdfdf;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #dfdfdf;
+  border: 1px solid #808080;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d4d0c8;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+}
+
+::-webkit-scrollbar-button {
+  background-color: #d4d0c8;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  width: 16px;
+  height: 16px;
+}

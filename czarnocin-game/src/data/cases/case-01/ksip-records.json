@@ -1,0 +1,100 @@
+[
+  {
+    "id": "K-01",
+    "category": "vehicle",
+    "searchQuery": "SBI 7305",
+    "displayTitle": "Rejestr Pojazdów: FSC Żuk A 07 (SBI 7305)",
+    "fields": {
+      "Pojazd": "FSC Żuk A 07 (samochód dostawczy), kolor biały, rok prod. 1987",
+      "Rejestracja": "SBI 7305, wydana 1991 r.",
+      "Właściciel": "Zbigniew M., ul. Hutnicza 21, Czarnocin (punkt skupu złomu)",
+      "Uwagi": "Brak adnotacji o kradzieży lub wycofaniu z ruchu."
+    },
+    "isMetaClue": false
+  },
+  {
+    "id": "K-02",
+    "category": "person",
+    "searchQuery": "Zbigniew M.",
+    "displayTitle": "Kartoteka Ludności: Zbigniew M.",
+    "fields": {
+      "Dane osobowe": "Zbigniew M., syn Jana, ur. 07.11.1949 r., zam. Czarnocin, ul. Hutnicza 21",
+      "Telefony": "Komórkowy: 502 281 930, Stacjonarny skupu: (032) 255 41 09",
+      "Pojazdy": "FSC Żuk A 07, rej. SBI 7305",
+      "Notowania": "1996 r., art. 291 § 1 k.k. (paserstwo), SR w Czarnocinie, sygn. II K 118/96 (1 rok w zawieszeniu na 3 lata)",
+      "Kartoteka daktyloskopijna": "TAK, karta nr CZ/D/1996/0417"
+    },
+    "isMetaClue": false
+  },
+  {
+    "id": "K-03",
+    "category": "person",
+    "searchQuery": "Tadeusz W.",
+    "displayTitle": "Kartoteka Ludności: Tadeusz W.",
+    "fields": {
+      "Dane osobowe": "Tadeusz W., ur. 1963, zam. Czarnocin, os. Zachód",
+      "Notowania": "1998 r., art. 157 § 2 k.k. (uszkodzenie ciała), wyrok w zawieszeniu. Dwie interwencje dzielnicowego.",
+      "Kartoteka daktyloskopijna": "TAK, karta nr CZ/D/1998/0102"
+    },
+    "isMetaClue": false
+  },
+  {
+    "id": "K-04",
+    "category": "phone",
+    "searchQuery": "602 552 071",
+    "displayTitle": "Wykaz Numerów: 602 552 071 (Era)",
+    "fields": {
+      "Abonent": "Brak bezpośrednich danych abonenckich w KSIP",
+      "Powiązania": "Notatka służbowa nr 214/99 WRD z 19.08.1999 r.: kontrola ciężarówki SBI 2218. Kierowca podał numer jako kontakt 'ochrona'",
+      "Uwagi": "Numer figuruje jako kontakt agencji ochrony mienia (nazwa agencji niewpisana w notatce)."
+    },
+    "isMetaClue": true
+  },
+  {
+    "id": "K-05",
+    "category": "company",
+    "searchQuery": "TRANS-MET",
+    "displayTitle": "Rejestr Podmiotów: TRANS-MET sp. z o.o.",
+    "fields": {
+      "Nazwa i adres": "TRANS-MET sp. z o.o., ul. Przemysłowa 14, Czarnocin, NIP 625-xx-xx-xxx",
+      "Przedmiot działalności": "Skup i transport złomu metali",
+      "Pojazdy": "Ciężarowy, rej. SBI 2218",
+      "Notatki": "Kontrola drogowa z dnia 19.08.1999 r. (notatka nr 214/99)"
+    },
+    "isMetaClue": true
+  },
+  {
+    "id": "K-06",
+    "category": "person",
+    "searchQuery": "Roman S.",
+    "displayTitle": "Kartoteka Ludności: Roman S.",
+    "fields": {
+      "Dane osobowe": "Roman S., ur. 1953, zam. Czarnocin, os. Zachód, zatrudniony w Zakładzie Energetycznym",
+      "Notowania": "Brak notowań kryminalnych"
+    },
+    "isMetaClue": false
+  },
+  {
+    "id": "K-07",
+    "category": "phone",
+    "searchQuery": "(032) 255 41 09",
+    "displayTitle": "Wykaz Numerów: (032) 255 41 09",
+    "fields": {
+      "Abonent": "Zbigniew M., punkt skupu złomu i metali kolorowych, ul. Hutnicza 21, Czarnocin",
+      "Linia": "Telekomunikacja Polska S.A., centrala miejska"
+    },
+    "isMetaClue": false
+  },
+  {
+    "id": "K-08",
+    "category": "person",
+    "searchQuery": "Henryk D.",
+    "displayTitle": "Kartoteka Ludności: Henryk D. (pokrzywdzony)",
+    "fields": {
+      "Dane osobowe": "Henryk D., ur. 1954, zam. Czarnocin, os. Wschód",
+      "Notowania": "1997 r., art. 278 § 1 k.k. (kradzież metali), postępowanie umorzone. 2000 r., wykroczenie (mandat).",
+      "Kartoteka daktyloskopijna": "BRAK karty w kartotece"
+    },
+    "isMetaClue": false
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "id": "case-01",
+  "code": "Ds. 112/02",
+  "title": "Złom na bocznicy",
+  "subtitle": "Zabójstwo mężczyzny na bocznicy kolejowej Huty Silesia",
+  "startingDate": "2002-03-14",
+  "startingClock": "08:00",
+  "startingBudgetHours": 80,
+  "ksipQueriesLimit": 10,
+  "rewardPoints": 100,
+  "initialSuspects": [
+    "Zbigniew M.",
+    "Tadeusz W."
+  ]
+}

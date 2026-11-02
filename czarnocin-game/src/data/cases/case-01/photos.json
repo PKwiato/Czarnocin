@@ -1,0 +1,122 @@
+[
+  {
+    "id": "IMG-01",
+    "caseId": "case-01",
+    "fileName": "IMG_0001.JPG",
+    "title": "Bocznica kolejowa Huty Silesia – widok ogólny",
+    "description": "Widok ogólny bocznicy nr 4 od strony bramy nr 3. Tor, sześć wagonów towarowych, w głębi oświetlenie techniczne.",
+    "technicianNotes": "Warunki: noc, mgła, wilgoć po opadach deszczu.",
+    "date": "14.03.2002 01:05",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-02",
+    "caseId": "case-01",
+    "fileName": "IMG_0002.JPG",
+    "title": "Tor nr 4 i wagon towarowy nr 665-4112",
+    "description": "Zbliżenie na wagon nr 665-4112 z odległości ok. 20 m.",
+    "technicianNotes": "Ślady rdzy, resztki ładunku złomu miedzianego.",
+    "date": "14.03.2002 01:12",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-03",
+    "caseId": "case-01",
+    "fileName": "IMG_0003.JPG",
+    "title": "Ułożenie zwłok względem toru i wagonu",
+    "description": "Ciało mężczyzny leżące na plecach w odległości 40 cm od ściany wagonu.",
+    "technicianNotes": "Głowa w stronę szyny, brak widocznych śladów wleczenia.",
+    "date": "14.03.2002 01:18",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-04",
+    "caseId": "case-01",
+    "fileName": "IMG_0004.JPG",
+    "title": "Klatka piersiowa ofiary i uszkodzenie odzieży",
+    "description": "Kurtka robocza z pojedynczym rozcięciem i rozległą plamą krwi.",
+    "technicianNotes": "Pojedyncza rana kłuta z lewej strony klatki.",
+    "date": "14.03.2002 01:25",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-05",
+    "caseId": "case-01",
+    "fileName": "IMG_0005.JPG",
+    "title": "Blaszana skrzynka narzędziowa przy torze",
+    "description": "Skrzynka po prawej stronie ciała, zamknięta na kłódkę.",
+    "technicianNotes": "Brak śladów wyłamania zamka.",
+    "date": "14.03.2002 01:30",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-06",
+    "caseId": "case-01",
+    "fileName": "IMG_0006.JPG",
+    "title": "Kłódka skrzynki narzędziowej (D-4)",
+    "description": "Kłódka żeliwna, nienaruszona, zabezpieczona do badań.",
+    "technicianNotes": "Ślady korozji atmosferycznej.",
+    "date": "14.03.2002 01:33",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-07",
+    "caseId": "case-01",
+    "fileName": "IMG_0007.JPG",
+    "title": "Nasyp tłuczniowy i plama krwi pod ciałem",
+    "description": "Skrzepła krew na kamieniach podsypki torowej (40 x 30 cm).",
+    "technicianNotes": "Pobrano próbki do oznaczenia grupy krwi (A Rh+).",
+    "date": "14.03.2002 01:40",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-08",
+    "caseId": "case-01",
+    "fileName": "IMG_0008.JPG",
+    "title": "Ślad opony jednokołowej w kałuży",
+    "description": "Odcisk wąskiej opony taczki lub wózka dwukołowego.",
+    "technicianNotes": "Typowy sprzęt zbieraczy złomu, niepowiązany ze sprawcą.",
+    "date": "14.03.2002 01:44",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-09",
+    "caseId": "case-01",
+    "fileName": "IMG_0009.JPG",
+    "title": "Ślad obuwia w błocie przy skrzynce (D-2)",
+    "description": "Ślad buta roboczego z miarką milimetrową. Długość 28 cm, wzór jodełka.",
+    "technicianNotes": "UWAGA: Bieżnik powszechny na Śląsku (popularne obuwie robocze Stomil). Trop pozorny bez cech indywidualnych.",
+    "date": "14.03.2002 01:48",
+    "isTrap": true
+  },
+  {
+    "id": "IMG-10",
+    "caseId": "case-01",
+    "fileName": "IMG_0010.JPG",
+    "title": "Przedmioty ujawnione w kieszeniach denata",
+    "description": "Zapalniczka, chusteczka, klucz, 7,40 zł w bilonie. Brak portfela i telefonu.",
+    "technicianNotes": "W kieszeni wewnętrznej zabezpieczono zgniecioną fakturę.",
+    "date": "14.03.2002 01:55",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-11",
+    "caseId": "case-01",
+    "fileName": "IMG_0011.JPG",
+    "title": "Zgnieciona faktura przewozowa D-3 z miarką",
+    "description": "Faktura przewozowa nr 0231/02 z odręcznym dopiskiem 'ZbM / HD'.",
+    "technicianNotes": "Papier zwilgocony, tusz czytelny.",
+    "date": "14.03.2002 02:05",
+    "isTrap": false
+  },
+  {
+    "id": "IMG-12",
+    "caseId": "case-01",
+    "fileName": "IMG_0012.JPG",
+    "title": "Perspektywa od zwłok w kierunku bramy nr 3",
+    "description": "Odległość ok. 180 m w linii prostej do budki dozorcy.",
+    "technicianNotes": "Widoczność ograniczona przez wagony i mgłę.",
+    "date": "14.03.2002 02:15",
+    "isTrap": false
+  }
+]

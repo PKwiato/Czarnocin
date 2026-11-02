@@ -1,0 +1,90 @@
+[
+  {
+    "id": "Z-01",
+    "caseId": "case-01",
+    "name": "Przesłuchanie obsługi i gości baru „Pod Lipą”",
+    "costHours": 6,
+    "requiresSuperiorApproval": false,
+    "isAvailable": true,
+    "isExecuted": false,
+    "unlockedDocumentIds": [
+      "AKT-009",
+      "AKT-010"
+    ]
+  },
+  {
+    "id": "Z-02",
+    "caseId": "case-01",
+    "name": "Wydruk bilingu połączeń wskazanego numeru komórkowego",
+    "costHours": 10,
+    "requiresSuperiorApproval": true,
+    "isAvailable": true,
+    "isExecuted": false,
+    "unlockedDocumentIds": [
+      "AKT-011"
+    ],
+    "targetSelectionRequired": "phone"
+  },
+  {
+    "id": "Z-03",
+    "caseId": "case-01",
+    "name": "Przesłuchanie stróża bramy nr 3 Huty Silesia",
+    "costHours": 6,
+    "requiresSuperiorApproval": false,
+    "isAvailable": true,
+    "isExecuted": false,
+    "unlockedDocumentIds": [
+      "AKT-012"
+    ]
+  },
+  {
+    "id": "Z-04",
+    "caseId": "case-01",
+    "name": "Przesłuchanie siostry pokrzywdzonego (Teresy D.)",
+    "costHours": 6,
+    "requiresSuperiorApproval": false,
+    "isAvailable": true,
+    "isExecuted": false,
+    "unlockedDocumentIds": [
+      "AKT-013"
+    ]
+  },
+  {
+    "id": "Z-05",
+    "caseId": "case-01",
+    "name": "Ekspertyza noża D-1 i porównanie daktyloskopijne",
+    "costHours": 14,
+    "requiresSuperiorApproval": true,
+    "isAvailable": true,
+    "isExecuted": false,
+    "unlockedDocumentIds": [
+      "AKT-014"
+    ],
+    "targetSelectionRequired": "person"
+  },
+  {
+    "id": "Z-06",
+    "caseId": "case-01",
+    "name": "Weryfikacja alibi wskazanej osoby (Tadeusz W.)",
+    "costHours": 6,
+    "requiresSuperiorApproval": false,
+    "isAvailable": true,
+    "isExecuted": false,
+    "unlockedDocumentIds": [
+      "AKT-015"
+    ],
+    "targetSelectionRequired": "person"
+  },
+  {
+    "id": "Z-07",
+    "caseId": "case-01",
+    "name": "Ponowne przesłuchanie Zbigniewa M.",
+    "costHours": 6,
+    "requiresSuperiorApproval": false,
+    "isAvailable": true,
+    "isExecuted": false,
+    "unlockedDocumentIds": [
+      "AKT-016"
+    ]
+  }
+]

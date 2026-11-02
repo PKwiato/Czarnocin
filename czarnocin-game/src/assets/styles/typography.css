@@ -1,0 +1,81 @@
+/* ==========================================================================
+   PROJEKT CZARNOCIN 2002 — Typografia Retro (Windows 2000 / KSIP)
+   ========================================================================== */
+
+:root {
+  --font-os: 'Tahoma', 'Verdana', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Courier New', 'Lucida Console', Courier, monospace;
+  --font-display: 'Tahoma', 'Verdana', sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-os);
+  font-size: 12px;
+  line-height: 1.35;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Teksty aktowe, protokoły maszynowe, wyciągi KSIP */
+.font-mono,
+.dossier-text,
+.police-typewriter {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+/* Nagłówki pism urzędowych */
+.police-header {
+  font-family: var(--font-mono);
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* Tekst etykiet i podtytułów retro */
+.text-label {
+  font-size: 11px;
+  color: #444444;
+}
+
+.text-title-bold {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Podkreślenia i znaczniki zakreślacza śledczego */
+.marker-yellow {
+  background-color: #f2e24a;
+  color: #111111;
+  padding: 1px 3px;
+  border-radius: 1px;
+}
+
+.marker-red {
+  background-color: #e8707a;
+  color: #111111;
+  padding: 1px 3px;
+  border-radius: 1px;
+}
+
+.marker-blue {
+  background-color: #7fb2f0;
+  color: #111111;
+  padding: 1px 3px;
+  border-radius: 1px;
+}
+
+.marker-neutral {
+  background-color: #ece9e0;
+  color: #333333;
+  padding: 1px 3px;
+  border-radius: 1px;
+}

@@ -1,0 +1,143 @@
+[
+  {
+    "id": "TE-01",
+    "time": "16:10",
+    "track": "bts",
+    "title": "Połączenie z punktem skupu",
+    "description": "Henryk D. dzwoni do skupu złomu M. (0:48 min, BTS Czarnocin-Osiedle)",
+    "btsStation": "Czarnocin-Osiedle",
+    "documentId": "AKT-005",
+    "isConflict": false
+  },
+  {
+    "id": "TE-02",
+    "time": "19:41",
+    "track": "bts",
+    "title": "Ostatnia rozmowa Henryka ze skupem",
+    "description": "Henryk D. dzwoni po raz piąty do punktu skupu M. (3:00 min)",
+    "btsStation": "Czarnocin-Osiedle",
+    "documentId": "AKT-005",
+    "isConflict": false
+  },
+  {
+    "id": "TE-03",
+    "time": "19:50",
+    "track": "alibi",
+    "title": "Tadeusz W. w izbie wytrzeźwień",
+    "description": "Doprowadzony przez patrol w stanie 2.9 promila, pozostaje do 06:30",
+    "documentId": "AKT-015",
+    "isConflict": false
+  },
+  {
+    "id": "TE-04",
+    "time": "20:05",
+    "track": "bts",
+    "title": "Połączenie z numeru Ery",
+    "description": "Obcy numer 602 552 071 dzwoni do Henryka D. (1:20 min)",
+    "btsStation": "Czarnocin-Osiedle",
+    "documentId": "AKT-005",
+    "isConflict": false
+  },
+  {
+    "id": "TE-05",
+    "time": "20:20",
+    "track": "scene",
+    "title": "Henryk wchodzi przez furtkę bramy 3",
+    "description": "Dozorca Józef K. widzi Henryka mówiącego, że 'ma się z kimś spotkać'",
+    "documentId": "AKT-012",
+    "isConflict": false
+  },
+  {
+    "id": "TE-06",
+    "time": "20:30",
+    "track": "alibi",
+    "title": "M. siada w barze „Pod Lipą”",
+    "description": "Świadek Roman S. i barmanka Halina P. potwierdzają obecność",
+    "documentId": "AKT-009",
+    "isConflict": false
+  },
+  {
+    "id": "TE-07",
+    "time": "21:12",
+    "track": "bts",
+    "title": "Połączenie przychodzące do M.",
+    "description": "M. odbiera telefon z numeru Ery w przedsionku baru (BTS Centrum)",
+    "btsStation": "Czarnocin-Centrum",
+    "documentId": "AKT-011",
+    "isConflict": false
+  },
+  {
+    "id": "TE-08",
+    "time": "21:15",
+    "track": "alibi",
+    "title": "Roman S. wychodzi z baru",
+    "description": "Kolega M. opuszcza lokal ze względu na poranny dyżur",
+    "documentId": "AKT-009",
+    "isConflict": false
+  },
+  {
+    "id": "TE-09",
+    "time": "21:30",
+    "track": "alibi",
+    "title": "M. wychodzi z baru",
+    "description": "Halina P. zeznaje: M. wziął kurtkę, wyszedł i odjechał głośnym dieslem",
+    "documentId": "AKT-010",
+    "isConflict": true
+  },
+  {
+    "id": "TE-10",
+    "time": "21:41",
+    "track": "bts",
+    "title": "M. dzwoni do Henryka z Huty",
+    "description": "Telefon M. loguje się w BTS Huta-Płn. (sprzeczność z zeznaniem o barze!)",
+    "btsStation": "Czarnocin Huta-Płn.",
+    "documentId": "AKT-011",
+    "isConflict": true
+  },
+  {
+    "id": "TE-11",
+    "time": "21:45",
+    "track": "scene",
+    "title": "Żuk wjeżdża przez bramę nr 3",
+    "description": "Dozorca odnotowuje wjazd białego Żuka SBI 73.. z napisem skup złomu",
+    "documentId": "AKT-012",
+    "isConflict": true
+  },
+  {
+    "id": "TE-12",
+    "time": "22:15",
+    "track": "scene",
+    "title": "Żuk wyjeżdża przez bramę nr 3",
+    "description": "Dozorca wpisuje wyjazd pojazdu do książki wjazdów",
+    "documentId": "AKT-012",
+    "isConflict": true
+  },
+  {
+    "id": "TE-13",
+    "time": "22:19",
+    "track": "bts",
+    "title": "M. dzwoni na numer Ery z Huty",
+    "description": "Krótkie połączenie 25 sek. ze stacji Huta-Płn.",
+    "btsStation": "Czarnocin Huta-Płn.",
+    "documentId": "AKT-011",
+    "isConflict": true
+  },
+  {
+    "id": "TE-14",
+    "time": "22:25",
+    "track": "alibi",
+    "title": "M. wraca do baru",
+    "description": "Halina P.: wraca zdyszany w zabłoconych butach, pije dwie wódki",
+    "documentId": "AKT-010",
+    "isConflict": true
+  },
+  {
+    "id": "TE-15",
+    "time": "23:50",
+    "track": "scene",
+    "title": "Ujawnienie zwłok",
+    "description": "Józef K. podczas nocnego obchodu odnajduje ciało Henryka D.",
+    "documentId": "AKT-002",
+    "isConflict": false
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "MAIL-01",
+    "caseId": "case-01",
+    "date": "14.03.2002 08:05",
+    "from": "z-ca Naczelnika Wydziału Kryminalnego",
+    "subject": "Ds. 112/02 – uwagi i wytyczne do śledztwa",
+    "content": "Przejmujesz sprawę z bocznicy. Prokurator chce wniosku opartego na twardych dowodach procesowych, a nie domysłach. W KSIP masz limit dziesięciu zapytań, każde jest rejestrowane. Zlecenia w terenie kosztują godziny, masz ich osiemdziesiąt. Bilingi i ekspertyzy laboratoryjne idą tylko za moją zgodą, więc rozważ dobrze, co podpisujesz. Wniosek z błędem merytorycznym spotka się z natychmiastowym odrzuceniem i naganą.",
+    "isRead": false
+  },
+  {
+    "id": "MAIL-02",
+    "caseId": "case-01",
+    "date": "15.03.2002 10:15",
+    "from": "z-ca Naczelnika Wydziału Kryminalnego",
+    "subject": "Zgoda na realizację czynności procesowej",
+    "content": "Wyrażam zgodę na realizację wnioskowanej czynności w laboratorium / u operatora sieci. Pamiętaj o racjonalnym gospodarowaniu budżetem śledztwa.",
+    "isRead": false
+  },
+  {
+    "id": "MAIL-03",
+    "caseId": "case-01",
+    "date": "14.03.2002 14:40",
+    "from": "Biuro Informatyki KMP Czarnocin",
+    "subject": "Rejestr zapytań do bazy KSIP – ostrzeżenie",
+    "content": "Przypominamy funkcjonariuszom, że każde zapytanie do bazy KSIP jest rejestrowane wraz z numerem legitymacji i stanowiskiem. Zapytania dotyczące osób lub podmiotów nieposiadających uzasadnienia procesowego będą przekazywane do Biura Spraw Wewnętrznych (BSW).",
+    "isRead": false
+  }
+]

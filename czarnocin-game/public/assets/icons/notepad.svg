@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <rect x="5" y="4" width="19" height="24" fill="#ffffc8" stroke="#000000"/>
+  <rect x="5" y="4" width="19" height="5" fill="#3c6eb4" stroke="#000000"/>
+  <rect x="7" y="2" width="2" height="4" fill="#c8c8c8" stroke="#3c3c3c"/>
+  <rect x="11" y="2" width="2" height="4" fill="#c8c8c8" stroke="#3c3c3c"/>
+  <rect x="15" y="2" width="2" height="4" fill="#c8c8c8" stroke="#3c3c3c"/>
+  <rect x="19" y="2" width="2" height="4" fill="#c8c8c8" stroke="#3c3c3c"/>
+  <line x1="8" y1="12" x2="20" y2="12" stroke="#b4d2f0"/>
+  <line x1="8" y1="15" x2="20" y2="15" stroke="#b4d2f0"/>
+  <line x1="8" y1="18" x2="20" y2="18" stroke="#b4d2f0"/>
+  <line x1="8" y1="21" x2="20" y2="21" stroke="#b4d2f0"/>
+  <polygon points="19,16 25,22 23,24 17,18" fill="#ffc81e" stroke="#785000"/>
+  <polygon points="17,18 13,22 15,24 19,20" fill="#f0d2aa" stroke="#64461e"/>
+  <rect x="12" y="23" width="2" height="2" fill="#000000"/>
+</svg>

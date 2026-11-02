@@ -1,0 +1,386 @@
+/* ==========================================================================
+   PROJEKT CZARNOCIN 2002 — Klasyczny interfejs Windows 2000 (98.css)
+   ========================================================================== */
+
+/* Podstawowa paleta retro */
+:root {
+  --win-gray: #d4d0c8;
+  --win-gray-light: #ece9e0;
+  --win-gray-dark: #808080;
+  --win-gray-darker: #404040;
+  --win-blue-start: #0a246a;
+  --win-blue-end: #3a6ea5;
+  --win-inactive-start: #808080;
+  --win-inactive-end: #b5b5b5;
+  --win-selection-blue: #0a246a;
+  --win-gold-accent: #c8b560;
+  --win-alert-red: #7a0a14;
+  --win-success-green: #0a5a1a;
+  --win-warning-orange: #a06000;
+}
+
+/* Wypukła ramka Windows 2000 */
+.border-outset {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+}
+
+/* Wklęsła ramka Windows 2000 (pola tekstowe, viewporty, zagłębienia) */
+.border-inset {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0 #000000, inset -1px -1px 0 #dfdfdf;
+  background-color: #ffffff;
+}
+
+/* Rowkowa ramka (Groupbox) */
+.border-groove {
+  border: 2px groove #ffffff;
+}
+
+/* Uniwersalna ramka okna */
+.window-frame,
+.w {
+  position: absolute;
+  background-color: var(--win-gray);
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+/* Pasek tytułu okna */
+.window-titlebar,
+.t {
+  height: 22px;
+  background: linear-gradient(90deg, var(--win-blue-start), var(--win-blue-end));
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+  user-select: none;
+  letter-spacing: 0.3px;
+}
+
+.window-titlebar.inactive {
+  background: linear-gradient(90deg, var(--win-inactive-start), var(--win-inactive-end));
+  color: #d4d0c8;
+}
+
+.window-title-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.window-title-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Przyciski sterujące oknem (_, □, X) */
+.window-controls {
+  display: flex;
+  gap: 2px;
+  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+.win-btn-control {
+  width: 16px;
+  height: 14px;
+  background-color: var(--win-gray);
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  font-family: var(--font-os);
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 10px;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.win-btn-control:active {
+  border-top: 1px solid #404040;
+  border-left: 1px solid #404040;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding-top: 1px;
+  padding-left: 1px;
+}
+
+/* Standardowy przycisk retro */
+.btn-retro,
+.b {
+  font-family: var(--font-os);
+  font-size: 12px;
+  background-color: var(--win-gray);
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #404040;
+  border-bottom: 2px solid #404040;
+  padding: 3px 10px;
+  color: #111111;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.btn-retro:hover,
+.b:hover {
+  background-color: #dedad2;
+}
+
+.btn-retro:active,
+.btn-retro.active,
+.b:active,
+.b.active {
+  border-top: 2px solid #404040;
+  border-left: 2px solid #404040;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  padding: 4px 9px 2px 11px;
+  background-color: #c9c5bd;
+}
+
+.btn-retro:focus-visible,
+.b:focus-visible {
+  outline: 1px dotted #111111;
+  outline-offset: -4px;
+}
+
+.btn-retro:disabled,
+.b:disabled {
+  color: #808080;
+  text-shadow: 1px 1px 0 #ffffff;
+  cursor: not-allowed;
+}
+
+/* Pasek narzędzi okna (Toolbar) */
+.win-toolbar {
+  display: flex;
+  gap: 4px;
+  padding: 4px 6px;
+  background-color: var(--win-gray);
+  border-bottom: 1px solid #808080;
+  align-items: center;
+}
+
+/* Wklęsłe pole tekstowe (Input / Select) */
+.input-retro,
+.in {
+  background-color: #ffffff;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  padding: 2px 5px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #111111;
+  box-sizing: border-box;
+}
+
+.input-retro:focus,
+.in:focus {
+  outline: none;
+  background-color: #fffff8;
+}
+
+/* Kontener grupujący (Groupbox) */
+.group-box,
+.g {
+  border: 2px groove #ffffff;
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  background-color: var(--win-gray);
+  box-sizing: border-box;
+}
+
+.group-box-title,
+.g h3 {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--win-blue-start);
+}
+
+/* Para klucz-wartość */
+.kv-row,
+.k {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted #808080;
+  padding: 2px 0;
+  font-size: 11px;
+}
+
+.kv-row b,
+.k b {
+  font-family: var(--font-mono);
+}
+
+/* Tabele retro (KSIP, Wnioski, Rozliczenie) */
+.retro-table,
+table {
+  border-collapse: collapse;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.retro-table th,
+th {
+  border: 1px solid #808080;
+  padding: 3px 6px;
+  background-color: #bdb9b0;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.retro-table td,
+td {
+  border: 1px solid #808080;
+  padding: 2px 5px;
+  font-size: 11px;
+  color: #111111;
+}
+
+/* Ikona pulpitu */
+.desktop-icon,
+.ic {
+  position: absolute;
+  width: 80px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 11px;
+  text-shadow: 1px 1px 1px #000000;
+  cursor: pointer;
+  padding: 4px 2px;
+  border: 1px solid transparent;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.desktop-icon.selected {
+  background-color: rgba(10, 36, 106, 0.7);
+  border: 1px dotted #ffffff;
+}
+
+.desktop-icon-img {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 4px;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.desktop-icon-label {
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+/* Pasek zadań dolny (Taskbar) */
+.taskbar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 32px;
+  background-color: var(--win-gray);
+  border-top: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  z-index: 9999;
+  user-select: none;
+}
+
+.start-btn {
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 8px;
+}
+
+.taskbar-items {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  overflow-x: auto;
+  height: 24px;
+}
+
+.taskbar-item-btn {
+  max-width: 180px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+  padding: 0 6px;
+  text-align: left;
+}
+
+/* Zasobnik systemowy (System Tray) */
+.system-tray {
+  margin-left: auto;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  background-color: var(--win-gray);
+  font-size: 11px;
+  color: #111111;
+  box-sizing: border-box;
+}
+
+/* Pasek statusu dolny okna */
+.window-statusbar {
+  padding: 3px 8px;
+  border-top: 1px solid #808080;
+  font-size: 11px;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  background-color: var(--win-gray);
+}
